@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy — Landfall</title>
+<meta name="description" content="Landfall's privacy policy: no accounts, no analytics, no server. Your books and notes stay on your iPhone.">
+<style>
+:root{
+  --paper:#FAF7F2; --ink:#2B2A28; --ochre:#B0722A; --slate:#48627E;
+  --rule:rgba(43,42,40,.14);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --mono:"SF Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --paper:#141210; --ink:#E9E4DC; --ochre:#D99A4E; --slate:#8FA9C4;
+         --rule:rgba(233,228,220,.14); }
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--paper); color:var(--ink); font-family:var(--serif); line-height:1.65}
+::selection{background:var(--ochre); color:var(--paper)}
+.page{max-width:640px; margin:0 auto; padding:56px 24px 96px}
+.mark{display:block; width:64px; margin-bottom:40px}
+.kicker{font-family:var(--mono); font-size:11px; letter-spacing:.34em; text-transform:uppercase; color:var(--ochre); margin-bottom:18px}
+h1{font-size:clamp(30px,6vw,40px); font-weight:600; letter-spacing:-.01em; margin-bottom:10px}
+.meta{opacity:.62; font-size:15px; margin-bottom:40px}
+h2{font-size:20px; font-weight:600; margin:40px 0 10px}
+p{margin-bottom:14px; font-size:17px}
+ul{margin:0 0 14px 22px}
+li{margin-bottom:10px; font-size:17px}
+a{color:var(--slate)}
+b{font-weight:600}
+.fine{margin-top:64px; padding-top:22px; border-top:1px solid var(--rule); font-size:14px; opacity:.62}
+.fine a{color:inherit}
+</style>
+</head>
+<body>
+<div class="page">
+  <a href="/" aria-label="Landfall home">
+    <svg class="mark" viewBox="0 0 120 120" aria-hidden="true">
+      <path d="M24 76 C36 76 40 58 58 56 C76 54 82 76 96 76 Z" fill="var(--ochre)"/>
+      <line x1="16" y1="76" x2="104" y2="76" stroke="var(--ink)" stroke-width="6.5" stroke-linecap="round"/>
+      <line x1="34" y1="92" x2="86" y2="92" stroke="var(--slate)" stroke-width="6" stroke-linecap="round" opacity=".55"/>
+    </svg>
+  </a>
+
+  <p class="kicker">Landfall</p>
+  <h1>Privacy Policy</h1>
+  <p class="meta">Landfall is made by NextBase LLC, 30 N Gould St Ste N, Sheridan, WY 82801.<br>
+  Effective July 2026 · Contact: <a href="mailto:verma.arun@gmail.com">verma.arun@gmail.com</a></p>
+
+  <p>Landfall is built so that there is almost nothing to have a policy about.</p>
+
+  <h2>What we collect</h2>
+  <p><b>Nothing.</b> Landfall has no accounts, no sign-in, no analytics, no ads, no
+  tracking, and no server of ours that receives your data. We cannot see your books,
+  notes, listening history, or anything else.</p>
+
+  <h2>What stays on your iPhone</h2>
+  <p>Your books, margin notes, bookmarks, listening positions, podcast subscriptions,
+  downloaded audio, and settings are stored on your device (and in your own iCloud
+  device backup, under Apple's terms). Spoken notes are transcribed
+  <b>on-device</b> using Apple's speech recognition.</p>
+
+  <h2>What leaves your iPhone, and when</h2>
+  <ul>
+    <li><b>OpenAI — only if you add your own API key, and only when you use an AI
+    feature.</b> Starting a Talk conversation streams your voice and the current
+    passage to OpenAI; converting a book's reading level sends its text; note-tidying
+    sends the note; premium narration sends the sentence being read; podcast
+    discussion may send a short audio excerpt for transcription. This happens directly
+    between your device and OpenAI under
+    <a href="https://openai.com/policies/">OpenAI's API terms</a>; we are not in the
+    middle. Your key is stored in your iPhone's Keychain and is removable in the app
+    at any time.</li>
+    <li><b>Apple's podcast directory and each show's own RSS feed</b> are fetched
+    directly to browse and stream episodes.</li>
+    <li><b>The daily digest</b> is a public, identical-for-everyone file. Reading it
+    sends nothing but an ordinary web request.</li>
+  </ul>
+
+  <h2>What we never do</h2>
+  <p>No selling of data, no sharing with data brokers, no fingerprinting, no
+  third-party SDKs. The app contains no code from advertising or analytics
+  companies.</p>
+
+  <h2>Children</h2>
+  <p>Landfall is not directed at children and is rated accordingly on the App Store.</p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes, the new version will be posted at this address with a
+  new effective date.</p>
+
+  <p class="fine">© 2026 NextBase LLC · <a href="/">madelandfall.com</a> · <a href="/support">Support</a></p>
+</div>
+</body>
+</html>
