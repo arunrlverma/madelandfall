@@ -224,6 +224,13 @@ footer{margin-top:14vh; position:relative}
   text-transform:uppercase; color:var(--slate); text-align:center; margin-top:18px}
 .phone:nth-child(2){margin-top:52px}
 .phone:nth-child(3){margin-top:104px}
+.chiprow{display:flex; flex-wrap:wrap; gap:10px; margin:26px 0 6px}
+.chiprow .chip{
+  display:inline-block; font-family:var(--mono); font-size:10px; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--ink); padding:6px 14px; border-radius:99px;
+  border:1px solid var(--rule); opacity:.85;
+}
+.chiprow .chip.on{background:var(--ochre); color:var(--paper); border-color:var(--ochre); opacity:1}
 @media (max-width:900px){
   .phone:nth-child(2),.phone:nth-child(3){margin-top:0}
   .gallery{flex-wrap:nowrap; justify-content:flex-start; overflow-x:auto;
@@ -260,7 +267,9 @@ footer{margin-top:14vh; position:relative}
     <p class="lede rv">Landfall reads the books that have outlived their centuries — aloud, while your
     hands are busy. And when a line stops you, you stop it back: say what you think,
     argue it out with a companion that knows the passage, and keep what you said
-    pinned to the words that caused it.</p>
+    pinned to the words that caused it. It does the same for the week's best
+    podcast conversations — sifted daily from the top charts, argued with
+    mid-episode, noted to the minute.</p>
 
     <div class="passage rv" id="passage">
       <span class="sen">You have power over your mind — not outside events.</span>
@@ -321,7 +330,6 @@ footer{margin-top:14vh; position:relative}
             <div class="card"><span class="chip">Stoic</span><br>Kate Bowler challenges Stoicism’s most famous idea</div>
             <div class="card"><span class="chip">Secular</span><br>A neuroscientist on what meditation does</div>
             <div class="card"><span class="chip">Christian</span><br>Faith and doubt, with Miroslav Volf</div>
-            <div class="card"><b>📌 34:12</b> · “He’s describing exactly what the Psalmist meant — note that.”</div>
           </div>
         </div>
       </div>
@@ -361,9 +369,35 @@ footer{margin-top:14vh; position:relative}
 
   <hr class="hairline">
 
-  <!-- ═══════════════════ IV · THE COVENANT ════════════════════ -->
-  <section class="chapter" id="covenant">
+  <!-- ══════════════════ IV · THE CONVERSATIONS ═════════════════ -->
+  <section class="chapter" id="conversations">
     <p class="kicker rv">Chapter IV</p>
+    <h2 class="rv">The old questions, still being asked.</h2>
+    <p class="lede rv">Every morning Landfall reads the top podcast charts in every category —
+    a thousand shows, most never filed under “religion” — and keeps the few
+    episodes that sit with the big questions. A theologian honest about doubt.
+    A neuroscientist on what meditation does. A skeptic taking the sacred
+    seriously. The list is finite; you can finish it.</p>
+    <div class="chiprow rv" aria-hidden="true">
+      <span class="chip on">All</span><span class="chip">Buddhist</span><span class="chip">Christian</span><span class="chip">Hindu</span><span class="chip">Indigenous</span><span class="chip">Interfaith</span><span class="chip">Jewish</span><span class="chip">Muslim</span><span class="chip">Secular</span><span class="chip">Stoic</span>
+    </div>
+    <p class="lede rv">And the loop you learned in the books is the loop here: stop an episode
+    mid-thought, talk it out with a companion that heard what you heard, and
+    the note lands on the minute. Follow shows, stream or download, and see
+    everything you’ve listened to.</p>
+    <div class="passage rv">
+      <div class="notecard">
+        <div class="meta"><b>📌 34:12</b> · With &amp; For · Faith and doubt</div>
+        “He’s describing exactly what the Psalmist meant — note that.”
+      </div>
+    </div>
+  </section>
+
+  <hr class="hairline">
+
+  <!-- ═══════════════════ V · THE COVENANT ═════════════════════ -->
+  <section class="chapter" id="covenant">
+    <p class="kicker rv">Chapter V</p>
     <h2 class="rv">Quiet, by design.</h2>
     <ul class="covenant">
       <li class="rv"><b>No account</b><span>Nothing to sign up for. Open it and read.</span></li>
