@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Support — Landfall</title>
-<meta name="description" content="Landfall support: common questions and how to reach a human.">
+<title>Support & FAQ — Landfall</title>
+<meta name="description" content="Every question about Landfall: listening, the AI companion, notes, reading levels, podcasts, offline audio, the OpenAI key, and your data.">
 <style>
 :root{
   --paper:#FAF7F2; --ink:#2B2A28; --ochre:#B0722A; --slate:#48627E;
@@ -23,12 +23,15 @@ body{background:var(--paper); color:var(--ink); font-family:var(--serif); line-h
 .mark{display:block; width:64px; margin-bottom:40px}
 .kicker{font-family:var(--mono); font-size:11px; letter-spacing:.34em; text-transform:uppercase; color:var(--ochre); margin-bottom:18px}
 h1{font-size:clamp(30px,6vw,40px); font-weight:600; letter-spacing:-.01em; margin-bottom:10px}
-.meta{opacity:.62; font-size:15px; margin-bottom:40px}
-h2{font-size:20px; font-weight:600; margin:40px 0 10px}
+.meta{opacity:.62; font-size:15px; margin-bottom:44px}
+h2{font-size:14px; font-weight:600; font-family:var(--mono); letter-spacing:.22em; text-transform:uppercase;
+   color:var(--ochre); margin:52px 0 6px; padding-top:22px; border-top:1px solid var(--rule)}
 p{margin-bottom:14px; font-size:17px}
-dt{font-weight:600; font-size:17px; margin-top:22px}
+dt{font-weight:600; font-size:17px; margin-top:24px}
 dd{margin:6px 0 0 0; font-size:17px}
+dd + dt{margin-top:26px}
 a{color:var(--slate)}
+b{font-weight:600}
 .fine{margin-top:64px; padding-top:22px; border-top:1px solid var(--rule); font-size:14px; opacity:.62}
 .fine a{color:inherit}
 </style>
@@ -44,32 +47,198 @@ a{color:var(--slate)}
   </a>
 
   <p class="kicker">Landfall</p>
-  <h1>Support</h1>
+  <h1>Support &amp; FAQ</h1>
   <p class="meta">Landfall is made by NextBase LLC.<br>
   Contact: <a href="mailto:verma.arun@gmail.com">verma.arun@gmail.com</a> — I read everything.</p>
 
-  <h2>Common questions</h2>
+  <h2>Getting started</h2>
   <dl>
     <dt>Do I need an account?</dt>
-    <dd>No. There is nothing to sign up for.</dd>
+    <dd>No. There is nothing to sign up for, ever. Open the app and press play.</dd>
 
-    <dt>Do I need an OpenAI key?</dt>
-    <dd>No. Listening, voice notes, podcasts, and the daily digest all work without
-    one. A key (from platform.openai.com) unlocks premium narration, Talk
-    conversations, reading levels, note tidying, and offline audio. Add or remove it
-    in the reader's ⋯ menu.</dd>
+    <dt>What does it cost?</dt>
+    <dd>The app is free. Everything core — listening, voice notes, podcasts, the daily
+    digest — is included. The optional AI features run on your own OpenAI key, and you
+    pay OpenAI directly for exactly what you use (see “The OpenAI key” below).</dd>
 
+    <dt>What books are included?</dt>
+    <dd>Ninety-nine classics and sacred texts, all in the public domain: the Gospels, the
+    Bhagavad Gita, the Dhammapada, the Psalms, Marcus Aurelius, Augustine's Confessions,
+    the Tao Te Ching, the I Ching, and many more — each cleaned up, properly chaptered,
+    and opening on its first real page.</dd>
+
+    <dt>Can I add my own books?</dt>
+    <dd>Yes — tap <b>Add a book</b> in the library and pick a Word document (.docx),
+    Markdown, or plain-text file. It becomes a full citizen: read aloud, notes, levels,
+    everything.</dd>
+  </dl>
+
+  <h2>Listening</h2>
+  <dl>
+    <dt>What voice reads to me?</dt>
+    <dd>Out of the box, Apple's built-in voice — it works offline and costs nothing.
+    With an OpenAI key you can switch to premium narration voices. Change voices any
+    time from the reader's <b>⋯ menu</b>.</dd>
+
+    <dt>Does it keep reading with the screen locked?</dt>
+    <dd>Yes. Lock the phone, pocket it, do the dishes — the reading continues in the
+    background until you stop it.</dd>
+
+    <dt>The audio cut out in a tunnel / on the subway.</dt>
+    <dd>Landfall retries automatically and resumes where you were the moment the
+    connection returns. Tapping play retries immediately. The built-in voice never
+    needs a connection at all.</dd>
+
+    <dt>Where did the text go while it reads?</dt>
+    <dd>The page follows the voice — the current sentence is highlighted as it's
+    spoken, word by word. If you scroll away, a <b>Back to reading</b> button returns
+    you to the live line.</dd>
+  </dl>
+
+  <h2>Talk — the AI companion</h2>
+  <dl>
+    <dt>What is Talk?</dt>
+    <dd>Stop anywhere and say what you think. The companion knows the exact passage you
+    just heard, can push back, explain, or search the whole book. It's a conversation,
+    out loud, with something that has read what you're reading.</dd>
+
+    <dt>How do I keep something I said?</dt>
+    <dd>Say <b>“note that”</b> mid-conversation. Your thought is pinned to the exact
+    line (or, in a podcast, the exact minute) that caused it — in your words.</dd>
+
+    <dt>Does Talk work in podcasts too?</dt>
+    <dd>Yes. Pause an episode and talk about the moment you're in — the companion knows
+    what was just said. Notes land on the timestamp.</dd>
+
+    <dt>Is the AI always right?</dt>
+    <dd>No. AI conversations and rewrites are generated by a model and can be wrong or
+    incomplete. They're a reading companion — not doctrine, scholarship, or counsel.</dd>
+
+    <dt>Does Talk need the OpenAI key?</dt>
+    <dd>Yes — Talk, premium voices, reading levels, and note tidying are the four
+    key-powered features. Everything else works without one.</dd>
+  </dl>
+
+  <h2>Notes</h2>
+  <dl>
     <dt>Where are my notes?</dt>
-    <dd>Inside the book, pinned to the line where you spoke them — open the Notes
-    panel from the reader, or export the whole book with notes to Word.</dd>
+    <dd>Pinned inside the book at the exact line where you spoke them. Open the
+    <b>Notes</b> panel from the reader to see them all, jump to any, or delete.</dd>
 
-    <dt>Playback stopped in a tunnel.</dt>
-    <dd>It reconnects automatically and resumes where you were. Tapping play retries
-    immediately.</dd>
+    <dt>Do voice notes need the AI key?</dt>
+    <dd>No. Spoken notes are transcribed on-device by Apple's speech recognition and
+    always work — even in airplane mode. The optional key adds a tidying pass that
+    cleans up the transcription.</dd>
+
+    <dt>Can I get my notes out?</dt>
+    <dd>Yes — export the whole book to a Word document with every note placed in the
+    margin where it belongs. Your commentary, portable.</dd>
+  </dl>
+
+  <h2>Reading levels</h2>
+  <dl>
+    <dt>What are reading levels?</dt>
+    <dd>Any book can be rewritten at <b>Plain English</b>, <b>Grade 8</b>, or
+    <b>Young readers</b> level — the whole book, chapter by chapter, checked for
+    faithfulness as it converts. Dense Victorian translations become hearable.</dd>
+
+    <dt>Do I lose the original?</dt>
+    <dd>Never. The original is always kept, you can switch levels inside the reader
+    mid-book, and your notes stay anchored to the right place in every version.</dd>
+
+    <dt>How do I convert a book?</dt>
+    <dd>Tap <b>Reading level</b> on the book's card in your library, pick a level, and
+    it converts with your OpenAI key. Done once, kept forever.</dd>
+  </dl>
+
+  <h2>Podcasts &amp; the daily digest</h2>
+  <dl>
+    <dt>What is the Today list?</dt>
+    <dd>Every morning Landfall reads the top podcast charts in every category — about a
+    thousand shows, most never filed under “religion” — and keeps the few episodes that
+    sit with the big questions. It's finite. You can finish it.</dd>
+
+    <dt>Can I filter it?</dt>
+    <dd>Yes — by tradition: Buddhist, Christian, Hindu, Indigenous, Interfaith, Jewish,
+    Muslim, Secular, Stoic, or all of them.</dd>
+
+    <dt>Can I follow my own shows?</dt>
+    <dd>Yes. Search any podcast, follow it, and its new episodes appear under
+    <b>Following</b>. <b>Listened</b> keeps your history; <b>Charts</b> lets you browse.</dd>
+
+    <dt>Does the digest need the AI key?</dt>
+    <dd>No — it's computed once for everyone and delivered as a plain file. It needs an
+    internet connection to refresh, nothing else.</dd>
+  </dl>
+
+  <h2>Offline &amp; downloads</h2>
+  <dl>
+    <dt>What works offline?</dt>
+    <dd>Reading with the built-in voice works completely offline. Podcast episodes can
+    be downloaded for the plane. Premium narration can be downloaded per chapter or per
+    book — the size and cost estimate is shown before you commit.</dd>
+
+    <dt>Why download narration?</dt>
+    <dd>So a tunnel or a flight doesn't drop you from the good voice back to the
+    robotic one. Downloads belong to the reading level you're on — each level has its
+    own audio.</dd>
+  </dl>
+
+  <h2>The OpenAI key</h2>
+  <dl>
+    <dt>Why bring my own key?</dt>
+    <dd>Because Landfall has no server. There's no account of ours between you and the
+    AI, no markup, and nothing for us to see. Your phone talks to OpenAI directly.</dd>
+
+    <dt>How do I get one?</dt>
+    <dd>Create one at <a href="https://platform.openai.com">platform.openai.com</a>
+    (API keys section), add a small amount of credit, and paste the key into Landfall —
+    on the last page of onboarding or in the reader's <b>⋯ menu</b> any time.</dd>
+
+    <dt>What does usage cost?</dt>
+    <dd>Roughly: a Talk conversation costs cents; tidying a note is fractions of a
+    cent; converting or narrating a whole book is on the order of a dollar or two, and
+    the app shows the estimate before starting anything large.</dd>
+
+    <dt>Where is my key stored?</dt>
+    <dd>In your iPhone's Keychain, sent only to OpenAI, directly. Remove it any time
+    in the <b>⋯ menu</b> — everything except the four AI features keeps working.</dd>
+  </dl>
+
+  <h2>Your data</h2>
+  <dl>
+    <dt>What do you collect about me?</dt>
+    <dd>Nothing. No analytics, no ads, no tracking, no server. Read the whole
+    <a href="/privacy">privacy policy</a> — it's short because there's nothing to say.</dd>
 
     <dt>How do I delete my data?</dt>
-    <dd>Delete the app. Everything is on your device; nothing remains anywhere else.
-    To remove just your OpenAI key: ⋯ menu → Settings.</dd>
+    <dd>Delete the app. Everything lives on your device, so nothing remains anywhere
+    else. Fair warning: that includes your books and notes — export anything you want
+    to keep first.</dd>
+
+    <dt>Is my library backed up?</dt>
+    <dd>It's included in your normal iPhone backup (iCloud or computer), under Apple's
+    terms. Landfall itself sends nothing anywhere.</dd>
+  </dl>
+
+  <h2>Troubleshooting</h2>
+  <dl>
+    <dt>The Today list is empty.</dt>
+    <dd>It needs one internet fetch to fill — pull to refresh or tap ↻. After that it's
+    cached for the day.</dd>
+
+    <dt>My key “doesn't work.”</dt>
+    <dd>Check three things: the key was pasted whole (it starts with <b>sk-</b>), your
+    OpenAI account has billing set up, and the key wasn't revoked on OpenAI's side.
+    Landfall shows the AI features as locked until a working key is present.</dd>
+
+    <dt>A book looks garbled after import.</dt>
+    <dd>Word documents survive best. If a plain-text book imports oddly, email it to me
+    and I'll look — the importer gets better with every strange file it meets.</dd>
+
+    <dt>Something else?</dt>
+    <dd><a href="mailto:verma.arun@gmail.com">verma.arun@gmail.com</a>. I read
+    everything, usually the same day.</dd>
   </dl>
 
   <p class="fine">© 2026 NextBase LLC · <a href="/">madelandfall.com</a> · <a href="/privacy">Privacy</a></p>
