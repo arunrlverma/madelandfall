@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>You're on the list — Landfall</title>
+<meta name="description" content="You're on the Landfall launch list.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FAF7F2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141210" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cpath d='M24 76C36 76 40 58 58 56 76 54 82 76 96 76Z' fill='%23B0722A'/%3E%3Cline x1='16' y1='76' x2='104' y2='76' stroke='%2348627E' stroke-width='7' stroke-linecap='round'/%3E%3Cline x1='34' y1='92' x2='86' y2='92' stroke='%2348627E' stroke-width='6' stroke-linecap='round' opacity='.5'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+:root{
+  --paper:#FAF7F2; --ink:#2B2A28; --ochre:#B0722A; --slate:#48627E;
+  --rule:rgba(43,42,40,.14);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --mono:"SF Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --paper:#141210; --ink:#E9E4DC; --ochre:#D99A4E; --slate:#8FA9C4;
+         --rule:rgba(233,228,220,.14); }
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--paper); color:var(--ink); font-family:var(--serif); line-height:1.65;
+  min-height:100svh; display:grid; place-items:center; text-align:center; padding:24px}
+::selection{background:var(--ochre); color:var(--paper)}
+.mark{display:block; width:76px; margin:0 auto 34px}
+.kicker{font-family:var(--mono); font-size:11px; letter-spacing:.34em; text-transform:uppercase; color:var(--ochre); margin-bottom:16px}
+h1{font-size:clamp(30px,6vw,44px); font-weight:600; letter-spacing:-.01em}
+p{margin-top:16px; font-size:18px; max-width:44ch; opacity:.85}
+a.back{display:inline-block; margin-top:34px; font-family:var(--mono); font-size:11px;
+  letter-spacing:.28em; text-transform:uppercase; color:var(--ochre);
+  border:1px solid var(--ochre); padding:13px 26px; text-decoration:none; transition:all .35s ease}
+a.back:hover{background:var(--ochre); color:var(--paper)}
+</style>
+</head>
+<body>
+<main>
+  <svg class="mark" viewBox="0 0 120 120" aria-hidden="true">
+    <path d="M24 76 C36 76 40 58 58 56 C76 54 82 76 96 76 Z" fill="var(--ochre)"/>
+    <line x1="16" y1="76" x2="104" y2="76" stroke="var(--ink)" stroke-width="6.5" stroke-linecap="round"/>
+    <line x1="34" y1="92" x2="86" y2="92" stroke="var(--slate)" stroke-width="6" stroke-linecap="round" opacity=".55"/>
+  </svg>
+  <p class="kicker">Landfall</p>
+  <h1>You’re on the list.</h1>
+  <p>The moment Landfall reaches the App Store, you’ll hear about it — once, and
+  nothing else ever. Until then, the hours are your own.</p>
+  <a class="back" href="/">Back to shore</a>
+</main>
+</body>
+</html>
