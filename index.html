@@ -212,6 +212,26 @@ footer{margin-top:14vh; position:relative}
 .foot-links a:hover{color:var(--paper)}
 .foot-fine{margin-top:18px; font-size:11px; color:color-mix(in srgb,var(--paper) 45%,transparent)}
 
+/* ————————————————————————— app gallery ————————————————————————— */
+.gallery{display:flex; gap:28px; justify-content:center; align-items:flex-start;
+  margin-top:72px; flex-wrap:wrap}
+.phone{flex:0 0 auto; width:min(280px, 74vw)}
+.phone .frame{border-radius:40px; overflow:hidden; background:#000;
+  border:1px solid var(--rule); padding:5px;
+  box-shadow:0 30px 70px -30px rgba(20,25,35,.5), 0 3px 12px rgba(20,25,35,.10)}
+.phone .frame img{display:block; width:100%; height:auto; border-radius:35px}
+.phone figcaption{font-family:var(--mono); font-size:10px; letter-spacing:.28em;
+  text-transform:uppercase; color:var(--slate); text-align:center; margin-top:18px}
+.phone:nth-child(2){margin-top:52px}
+.phone:nth-child(3){margin-top:104px}
+@media (max-width:900px){
+  .phone:nth-child(2),.phone:nth-child(3){margin-top:0}
+  .gallery{flex-wrap:nowrap; justify-content:flex-start; overflow-x:auto;
+    scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+    padding:6px 10vw 20px; margin:56px -24px 0}
+  .phone{scroll-snap-align:center}
+}
+
 @media (prefers-reduced-motion: reduce){
   *{animation-duration:.01ms!important; animation-delay:0ms!important; transition-duration:.01ms!important}
   .loaded .wordmark,.loaded .tagline{opacity:1}
@@ -305,6 +325,25 @@ footer{margin-top:14vh; position:relative}
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- the app itself: three moments, unretouched -->
+    <div class="gallery">
+      <figure class="phone rv">
+        <div class="frame"><img src="shots/02-reader.png" width="640" height="1390" loading="lazy"
+          alt="The Landfall reader following the Dhammapada aloud — the current sentence highlighted, Talk and Notes on the dock"></div>
+        <figcaption>the line, lit as it’s read</figcaption>
+      </figure>
+      <figure class="phone rv">
+        <div class="frame"><img src="shots/03-podcasts.png" width="640" height="1390" loading="lazy"
+          alt="The Today tab — podcast episodes sifted daily from the top charts, filtered by tradition"></div>
+        <figcaption>podcasts, sifted daily</figcaption>
+      </figure>
+      <figure class="phone rv">
+        <div class="frame"><img src="shots/04-episode.png" width="640" height="1390" loading="lazy"
+          alt="An episode playing in Landfall with Talk and Notes available mid-episode"></div>
+        <figcaption>talk mid-episode · note the minute</figcaption>
+      </figure>
     </div>
   </section>
 
