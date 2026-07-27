@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Landfall — classic books &amp; sacred texts read aloud, on iPhone</title>
+<title>Landfall — great books &amp; podcasts read aloud, on iPhone</title>
 <meta name="description" content="Landfall is a free iPhone app that reads the great books and this week's best podcast conversations aloud — and lets you talk back. Old words, made landfall.">
 <link rel="canonical" href="https://madelandfall.com/">
 <meta name="theme-color" content="#FAF7F2" media="(prefers-color-scheme: light)">
@@ -307,7 +307,7 @@ footer{margin-top:14vh; position:relative}
   <div class="titleblock">
     <h1 class="wordmark">Landfall</h1>
     <p class="tagline">Old words, made landfall<span class="dot">.</span></p>
-    <p class="herosub">A free iPhone app · classics &amp; sacred texts, read aloud · talk back</p>
+    <p class="herosub">A free iPhone app · great books &amp; podcasts, read aloud · talk back</p>
   </div>
   <div class="scrollcue">read on</div>
 </header>
@@ -317,13 +317,12 @@ footer{margin-top:14vh; position:relative}
 <div class="page">
   <section class="chapter" id="thesis">
     <p class="kicker rv">Chapter I</p>
-    <h2 class="rv">Talk back to the great books.</h2>
-    <p class="lede rv">Landfall reads the books that have outlived their centuries — aloud, while your
-    hands are busy. And when a line stops you, you stop it back: say what you think,
-    argue it out with an AI companion that knows the passage, and keep what you said
-    pinned to the words that caused it. It does the same for the week's best
-    podcast conversations — sifted daily from the top charts, argued with
-    mid-episode, noted to the minute.</p>
+    <h2 class="rv">Talk back to the great books — and the great podcasts.</h2>
+    <p class="lede rv">Landfall reads the books that have outlived their centuries and the week's
+    best podcast conversations — aloud, while your hands are busy. When a line
+    stops you, you stop it back: say what you think, argue it out with an AI
+    companion that knows the passage or the moment you're in, and keep what you
+    said pinned to the words — or the minute — that caused it.</p>
 
     <div class="passage rv" id="passage">
       <span class="sen">You have power over your mind — not outside events.</span>
@@ -556,6 +555,41 @@ footer{margin-top:14vh; position:relative}
     rect(0,0,W,H, 'var(--paper)');
     rect(0,0,W,H, 'url(#skyw)');
 
+    // Faded names in the sky and sea: the shelf and the digest, as weather.
+    // Deliberately at the edge of legibility — texture first, easter egg second.
+    function ghost(txt, x, y, size, fill, op){
+      const t = document.createElementNS(NS,'text');
+      t.setAttribute('x', x); t.setAttribute('y', y);
+      t.setAttribute('text-anchor','middle');
+      t.setAttribute('fill', fill);
+      t.setAttribute('font-style','italic');
+      t.setAttribute('font-family','Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif');
+      t.setAttribute('font-size', size);
+      t.textContent = txt;
+      if(skipIntro){
+        t.setAttribute('opacity', op);
+      } else {
+        t.setAttribute('opacity', 0);
+        const a = document.createElementNS(NS,'animate');
+        a.setAttribute('attributeName','opacity');
+        a.setAttribute('from','0'); a.setAttribute('to', op);
+        a.setAttribute('dur','2.6s'); a.setAttribute('begin','1.5s');
+        a.setAttribute('fill','freeze');
+        t.appendChild(a);
+      }
+      svg.appendChild(t);
+    }
+    const NAMES_SKY = [
+      ['Meditations', .10, .32, 22], ['With & For', .84, .26, 17],
+      ['The Gospels', .76, .44, 20], ['Huberman Lab', .15, .54, 16],
+      ['Bhagavad Gita', .87, .62, 18], ['Hidden Brain', .07, .74, 17],
+      ['Psalms', .30, .82, 16], ['Making Sense', .68, .80, 16],
+      ['Tao Te Ching', .48, .90, 18], ['Confessions', .91, .88, 15],
+    ];
+    for(const [txt, fx, fy, size] of NAMES_SKY){
+      ghost(txt, fx * W, fy * hy, size, 'var(--ink)', 0.055);
+    }
+
     // sea bands, horizon down
     bands.length = 0;
     const n = tones.length;
@@ -585,6 +619,15 @@ footer{margin-top:14vh; position:relative}
         svg.appendChild(f);
         bands[bands.length-1].foam = f;
       }
+    }
+
+    const NAMES_SEA = [
+      ['The Dhammapada', .22, .30, 15],
+      ['People I (Mostly) Admire', .72, .50, 14],
+      ['Ecclesiastes', .40, .72, 15],
+    ];
+    for(const [txt, fx, fy, size] of NAMES_SEA){
+      ghost(txt, fx * W, hy + (H - hy) * fy, size, 'var(--foam)', 0.07);
     }
 
     // the mark: headland + horizon rule + still-water stroke
