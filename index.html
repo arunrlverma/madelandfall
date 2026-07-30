@@ -294,9 +294,49 @@ footer{margin-top:14vh; position:relative}
 @media (prefers-reduced-motion: reduce){
   *{animation-duration:.01ms!important; animation-delay:0ms!important;
     transition-duration:.01ms!important; animation-iteration-count:1!important}
-  .wordmark,.tagline,.herosub{opacity:1!important; transform:none!important; filter:none!important}
+  .wordmark,.tagline,.herosub,.herolink{opacity:1!important; transform:none!important; filter:none!important}
   .scrollcue{opacity:.7!important}
 }
+
+/* ————————————————————————— hero CTA (Track A) ————————————————————————
+   One restrained line under the subtitle. Slate, not ochre: the ochre belongs
+   to the headland and the CTA must not compete with it. Slate clears AA on
+   paper in both schemes (5.91:1 light, 7.69:1 dark). The title block is NOT
+   moved at any viewport.
+
+   FAIL-CLOSED. The link is hidden by default and each band below may only
+   reveal it where the geometry is measured to hold. An unclassified or
+   uncertain viewport therefore shows nothing rather than overlapping the art.
+
+   Two things drive the thresholds. The wordmark is clamp(52px,11vw,124px), so
+   a wider viewport needs a taller one before the link clears the headland by
+   the required 32px. And below about 360px the subtitle wraps to a third
+   line, so the very narrowest screens need MORE height, not less.
+
+   Minimum height for 32px clearance, by binary search against the rendered
+   headland path:
+     320w:762  360w:730  414w:726  480w:742  640w:768  700w:786  768w:772
+     900w:814  1024w:846  1200w:868  1440w:868  1600w:860  1920w:848
+   Each band's reveal height is rounded up from the worst case inside it. */
+.herolink{
+  display:none; margin-top:34px;
+  font-family:var(--mono); font-size:11px; letter-spacing:.24em;
+  text-transform:uppercase; color:var(--slate); text-decoration:none;
+  border-bottom:1px solid color-mix(in srgb, var(--slate) 45%, transparent);
+  padding:6px 2px; opacity:0;
+  animation:surface 1.2s cubic-bezier(.22,1,.36,1) 1.75s forwards;
+}
+.herolink:hover{color:var(--ink); border-bottom-color:var(--ink)}
+.herolink:focus-visible{outline:2px solid var(--slate); outline-offset:6px}
+
+@media (min-width:320px)  and (max-width:359px)  and (min-height:766px){ .herolink{display:inline-block} }
+@media (min-width:360px)  and (max-width:414px)  and (min-height:730px){ .herolink{display:inline-block} }
+@media (min-width:415px)  and (max-width:479px)  and (min-height:750px){ .herolink{display:inline-block} }
+@media (min-width:480px)  and (max-width:639px)  and (min-height:776px){ .herolink{display:inline-block} }
+@media (min-width:640px)  and (max-width:767px)  and (min-height:790px){ .herolink{display:inline-block} }
+@media (min-width:768px)  and (max-width:899px)  and (min-height:820px){ .herolink{display:inline-block} }
+@media (min-width:900px)  and (max-width:1023px) and (min-height:850px){ .herolink{display:inline-block} }
+@media (min-width:1024px) and (min-height:873px){ .herolink{display:inline-block} }
 </style>
 </head>
 <body>
@@ -308,6 +348,7 @@ footer{margin-top:14vh; position:relative}
     <h1 class="wordmark">Landfall</h1>
     <p class="tagline">Old words, made landfall<span class="dot">.</span></p>
     <p class="herosub">A free iPhone app · great books &amp; podcasts, read aloud · talk back</p>
+    <a class="herolink" href="#join">Tell me when it lands</a>
   </div>
   <div class="scrollcue">read on</div>
 </header>
@@ -332,6 +373,18 @@ footer{margin-top:14vh; position:relative}
         “This is the same thing my father kept trying to tell me the year the
         business failed. Write about this.”
       </div>
+    </div>
+
+    <div class="capture rv" id="join">
+      <p class="cap-line">Coming free to the App Store</p>
+      <form class="notifyform" action="https://formsubmit.co/admin@s8t.ai" method="POST">
+        <input type="hidden" name="_subject" value="Landfall launch list">
+        <input type="hidden" name="_next" value="https://madelandfall.com/thanks">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="email" name="email" required placeholder="your@email.com" aria-label="Email address">
+        <button type="submit">Tell me when it lands</button>
+      </form>
     </div>
   </section>
 
@@ -405,17 +458,6 @@ footer{margin-top:14vh; position:relative}
       </figure>
     </div>
 
-    <div class="capture rv">
-      <p class="cap-line">Coming free to the App Store</p>
-      <form class="notifyform" action="https://formsubmit.co/admin@s8t.ai" method="POST">
-        <input type="hidden" name="_subject" value="Landfall launch list">
-        <input type="hidden" name="_next" value="https://madelandfall.com/thanks">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <input type="email" name="email" required placeholder="your@email.com" aria-label="Email address">
-        <button type="submit">Tell me when it lands</button>
-      </form>
-    </div>
   </section>
 
   <hr class="hairline">
@@ -470,18 +512,6 @@ footer{margin-top:14vh; position:relative}
       <li class="rv"><b>No tracking</b><span>No analytics, no ads, no server of ours holding your words.</span></li>
       <li class="rv"><b>Your key, your Keychain</b><span>AI features are optional and bring-your-own-key — stored on your iPhone, sent only to OpenAI, removable any time.</span></li>
     </ul>
-
-    <div class="capture rv">
-      <p class="cap-line">Coming free to the App Store</p>
-      <form class="notifyform" action="https://formsubmit.co/admin@s8t.ai" method="POST">
-        <input type="hidden" name="_subject" value="Landfall launch list">
-        <input type="hidden" name="_next" value="https://madelandfall.com/thanks">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <input type="email" name="email" required placeholder="your@email.com" aria-label="Email address">
-        <button type="submit">Tell me when it lands</button>
-      </form>
-    </div>
   </section>
 </div>
 
