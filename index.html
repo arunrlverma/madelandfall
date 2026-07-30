@@ -931,9 +931,12 @@ footer{margin-top:14vh; position:relative}
       note.textContent = text || '';
     };
 
-    // clear a stale error as soon as they start correcting it
+    // Any edit starts a fresh attempt: the note described the previous address
+    // and the previous response, and the fallback was offered for that request.
+    // Retire both. Guarded so it cannot wipe 'pending' or 'ok'.
     email.addEventListener('input', () => {
-      if(wrap.getAttribute('data-state') === 'invalid'){
+      const st = wrap.getAttribute('data-state');
+      if(st === 'invalid' || st === 'failed'){
         email.removeAttribute('aria-invalid');
         state(null, '');
       }
@@ -941,7 +944,17 @@ footer{margin-top:14vh; position:relative}
 
     // The reader can always force the plain POST. This is the only path that
     // may send a second time, and it is taken deliberately, by them.
-    alt.addEventListener('click', () => { form.submit(); });
+    alt.addEventListener('click', () => {
+      // form.submit() bypasses this handler and native constraint validation
+      // alike, so nothing else will catch a bad address on this path.
+      if(!email.checkValidity()){
+        email.setAttribute('aria-invalid', 'true');
+        state('invalid', MSG.invalid);
+        email.focus();
+        return;
+      }
+      form.submit();
+    });
 
     form.addEventListener('submit', async ev => {
       ev.preventDefault();
