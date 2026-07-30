@@ -31,6 +31,10 @@
      --ochre-ink is the same hue darkened to 4.74:1 for small text, buttons and
      fills, which need WCAG AA at these sizes. */
   --ochre-ink:#986324;
+  /* failure text. Like the footer, a fixed red only works against one
+     theme — --warn flips with the paper, --warn-foot rides the footer blue
+     (which stays dark in both schemes). */
+  --warn:#A3282A; --warn-foot:#FFC9C4;
   --sea1:#D8DEE6; --sea2:#BFCBD8; --sea3:#9FB2C4; --sea4:#7E97AE;
   --sea5:#5F7B96; --sea6:#48627E; --sea7:#3A5069;
   --foam:#FAF7F2; --rule:rgba(43,42,40,.14); --footbg:#3A5069;
@@ -42,6 +46,7 @@
     --paper:#141210; --ink:#E9E4DC; --ochre:#D99A4E; --slate:#8FA9C4;
     /* on dark paper the display ochre already clears AA (7.73:1), so both agree */
     --ochre-ink:#D99A4E;
+    --warn:#E08082; --warn-foot:#FFC9C4;
     --sea1:#1C222B; --sea2:#222B36; --sea3:#293544; --sea4:#324153;
     --sea5:#3C4E63; --sea6:#48627E; --sea7:#587693;
     --foam:#E9E4DC; --rule:rgba(233,228,220,.14); --footbg:#222B36;
@@ -296,12 +301,10 @@ footer{margin-top:14vh; position:relative}
 .foot-inner .notifyform button{color:var(--foam); border-color:color-mix(in srgb,var(--foam) 40%,transparent)}
 .foot-inner .notifyform button:hover{background:var(--foam); color:var(--footbg)}
 /* on paper, mid-page */
-.capture{text-align:center; margin-top:10vh}
-.capture .cap-line{font-family:var(--mono); font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--slate)}
-.capture .notifyform input[type=email],.herocta .notifyform input[type=email]{color:var(--ink); border-color:var(--rule); background:var(--paper)}
-.capture .notifyform input[type=email]::placeholder,.herocta .notifyform input[type=email]::placeholder{color:color-mix(in srgb,var(--ink) 45%,transparent)}
-.capture .notifyform button,.herocta .notifyform button{color:var(--ochre-ink); border-color:var(--ochre-ink); background:var(--paper)}
-.capture .notifyform button:hover,.herocta .notifyform button:hover{background:var(--ochre-ink); color:var(--paper)}
+.herocta .notifyform input[type=email]{color:var(--ink); border-color:var(--rule); background:var(--paper)}
+.herocta .notifyform input[type=email]::placeholder{color:color-mix(in srgb,var(--ink) 45%,transparent)}
+.herocta .notifyform button{color:var(--ochre-ink); border-color:var(--ochre-ink); background:var(--paper)}
+.herocta .notifyform button:hover{background:var(--ochre-ink); color:var(--paper)}
 
 /* ————————————————— launch-day CTA (hidden until the class comes off) —————— */
 .appstore{
@@ -325,11 +328,30 @@ footer{margin-top:14vh; position:relative}
 }
 .signup[data-state="pending"] .formnote{color:var(--slate)}
 .signup[data-state="ok"]      .formnote{color:var(--ochre-ink); font-weight:600}
-.signup[data-state="error"]   .formnote{color:#A3282A}
-.foot-inner .signup[data-state="ok"]    .formnote{color:var(--foam); font-weight:600}
-.foot-inner .signup[data-state="error"] .formnote{color:#FFC9C4}
-.notifyform input[type=email][aria-invalid="true"]{border-color:#A3282A}
-.foot-inner .notifyform input[type=email][aria-invalid="true"]{border-color:#FFC9C4}
+.signup[data-state="invalid"] .formnote,
+.signup[data-state="failed"]  .formnote{color:var(--warn)}
+.foot-inner .signup[data-state="ok"]      .formnote{color:var(--foam); font-weight:600}
+.foot-inner .signup[data-state="invalid"] .formnote,
+.foot-inner .signup[data-state="failed"]  .formnote{color:var(--warn-foot)}
+/* Offered only when a send is genuinely ambiguous — never taken automatically,
+   because the first POST may already have been recorded. */
+.formalt{
+  display:none; margin-top:10px; font-family:var(--mono); font-size:10px;
+  letter-spacing:.2em; text-transform:uppercase; cursor:pointer;
+  background:transparent; border:0; border-bottom:1px solid currentColor;
+  padding:8px 2px; color:var(--slate);
+}
+.formalt:hover{color:var(--ink)}
+.foot-inner .formalt{color:var(--foam)}
+.signup[data-state="failed"] .formalt{display:inline-block}
+/* In the hero these can extend past the horizon and onto the moving sea, where
+   no contrast figure holds. Same answer as the fields above them: sit on paper. */
+.herocta .signup[data-state] .formnote{
+  display:inline-block; background:var(--paper); padding:6px 12px;
+}
+.herocta .formalt{background:var(--paper); padding:8px 12px}
+.notifyform input[type=email][aria-invalid="true"]{border-color:var(--warn)}
+.foot-inner .notifyform input[type=email][aria-invalid="true"]{border-color:var(--warn-foot)}
 .notifyform button[disabled]{opacity:.55; cursor:progress}
 /* on success the fields have done their job — retire them, keep the message */
 .signup[data-state="ok"] .notifyform{display:none}
@@ -399,6 +421,7 @@ footer{margin-top:14vh; position:relative}
           <button type="submit">Tell me when it lands</button>
         </form>
         <p class="formnote" role="status" aria-live="polite"></p>
+        <button type="button" class="formalt">Try standard submission</button>
       </div>
       <a class="appstore at-launch" href="https://apps.apple.com/us/app/landfall-books-podcasts/id6794945892">Download free on the App&nbsp;Store</a>
     </div>
@@ -553,23 +576,6 @@ footer{margin-top:14vh; position:relative}
       <li class="rv"><b>No tracking</b><span>No analytics, no ads, no server of ours holding your words.</span></li>
       <li class="rv"><b>Your key, your Keychain</b><span>AI features are optional and bring-your-own-key — stored on your iPhone, sent only to OpenAI, removable any time.</span></li>
     </ul>
-
-    <div class="capture rv">
-      <p class="cap-line pre-launch">Coming free to the App Store</p>
-      <div class="signup pre-launch" data-signup>
-        <form class="notifyform" action="https://formsubmit.co/admin@s8t.ai" method="POST">
-          <input type="hidden" name="_subject" value="Landfall launch list">
-          <input type="hidden" name="_next" value="https://madelandfall.com/thanks">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <input type="email" name="email" required placeholder="your@email.com"
-            aria-label="Email address" autocomplete="email" inputmode="email" spellcheck="false">
-          <button type="submit">Tell me when it lands</button>
-        </form>
-        <p class="formnote" role="status" aria-live="polite"></p>
-      </div>
-      <a class="appstore at-launch" href="https://apps.apple.com/us/app/landfall-books-podcasts/id6794945892">Download free on the App&nbsp;Store</a>
-    </div>
   </section>
 </div>
 
@@ -597,6 +603,7 @@ footer{margin-top:14vh; position:relative}
         <button type="submit">Tell me when it lands</button>
       </form>
       <p class="formnote" role="status" aria-live="polite"></p>
+      <button type="button" class="formalt">Try standard submission</button>
     </div>
     <p class="foot-alt pre-launch">or email <a href="mailto:admin@s8t.ai?subject=Landfall%20launch%20list&amp;body=Tell%20me%20when%20it%20lands.">admin@s8t.ai</a></p>
     <a class="appstore at-launch" href="https://apps.apple.com/us/app/landfall-books-podcasts/id6794945892">Download free on the App&nbsp;Store</a>
@@ -897,15 +904,17 @@ footer{margin-top:14vh; position:relative}
     invalid: 'That address doesn’t look right — check it and try again.',
     pending: 'Sending…',
     ok:      'You’re on the list. We’ll write once, when it lands.',
-    fail:    'That didn’t send. Trying the long way round…',
+    failed:  'That didn’t send, and we can’t tell whether it arrived. Your address is still here.',
   };
+  const TIMEOUT = 10000;
 
   for(const wrap of document.querySelectorAll('[data-signup]')){
     const form  = wrap.querySelector('form');
     const email = wrap.querySelector('input[type=email]');
     const btn   = wrap.querySelector('button[type=submit]');
     const note  = wrap.querySelector('.formnote');
-    if(!form || !email || !btn || !note) continue;
+    const alt   = wrap.querySelector('.formalt');
+    if(!form || !email || !btn || !note || !alt) continue;
 
     // formsubmit exposes the same endpoint under /ajax/ for a JSON reply
     const ajax = form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
@@ -924,44 +933,55 @@ footer{margin-top:14vh; position:relative}
 
     // clear a stale error as soon as they start correcting it
     email.addEventListener('input', () => {
-      if(wrap.getAttribute('data-state') === 'error'){
+      if(wrap.getAttribute('data-state') === 'invalid'){
         email.removeAttribute('aria-invalid');
         state(null, '');
       }
     });
 
+    // The reader can always force the plain POST. This is the only path that
+    // may send a second time, and it is taken deliberately, by them.
+    alt.addEventListener('click', () => { form.submit(); });
+
     form.addEventListener('submit', async ev => {
-      if(busy){ ev.preventDefault(); return; }        // no double submit
+      ev.preventDefault();
+      if(busy) return;                       // no double submit
 
       if(!email.checkValidity()){
-        ev.preventDefault();
         email.setAttribute('aria-invalid', 'true');
-        state('error', MSG.invalid);
+        state('invalid', MSG.invalid);
         email.focus();
         return;
       }
 
-      ev.preventDefault();
       busy = true;
       email.removeAttribute('aria-invalid');
       btn.disabled = true;
       state('pending', MSG.pending);
 
+      // A request that never answers would otherwise sit on "Sending…" forever.
+      const ctl = new AbortController();
+      const timer = setTimeout(() => ctl.abort(), TIMEOUT);
       try{
         const res = await fetch(ajax, {
           method: 'POST',
           headers: {'Accept': 'application/json'},
           body: new FormData(form),          // entered value is never cleared
+          signal: ctl.signal,
         });
         if(!res.ok) throw new Error('http ' + res.status);
         state('ok', MSG.ok);                 // CSS retires the fields on success
       }catch(err){
-        // Transport or endpoint failure: fall back to the plain POST, which
-        // redirects to /thanks. Better a page change than a lost signup.
-        // Stay busy/disabled — we are navigating, and re-enabling here would
-        // let a second click fire a duplicate POST during the handover.
-        state('error', MSG.fail);
-        form.submit();                       // native submit skips this handler
+        // Never resend on our own initiative. A rejected, aborted or unreadable
+        // response does NOT mean the POST failed to reach the server — it may
+        // already be recorded, and a blind retry would add a duplicate to the
+        // launch list. So recover in place: keep the address, re-enable the
+        // form, leave a durable message, and offer the plain POST as a choice.
+        state('failed', MSG.failed);
+        btn.disabled = false;
+        busy = false;
+      }finally{
+        clearTimeout(timer);
       }
     });
   }
