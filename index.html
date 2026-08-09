@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Landfall — great books &amp; podcasts read aloud, on iPhone</title>
-<meta name="description" content="Landfall is a free iPhone app that reads the great books and this week's best podcast conversations aloud — and lets you talk back. Old words, made landfall.">
+<title>Landfall — read, listen, and talk back</title>
+<meta name="description" content="Read and listen to 148 timeless books, discuss passages with free private Apple On-Device Jam, explore podcasts, and meet clearly labelled AI personas inspired by authors and characters.">
 <link rel="canonical" href="https://madelandfall.com/">
 <meta name="theme-color" content="#FAF7F2" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141210" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://madelandfall.com/">
-<meta property="og:title" content="Landfall — talk back to the great books">
-<meta property="og:description" content="A free iPhone app that reads the classics and sacred texts aloud — and lets you argue back, pin your thoughts to the line, and hear the week's best podcast conversations.">
+<meta property="og:title" content="Landfall — read, listen, and talk back">
+<meta property="og:description" content="148 timeless books, natural narration, free private on-device Jam, thoughtful podcasts, and clearly labelled AI personas inspired by authors and characters.">
 <meta property="og:image" content="https://madelandfall.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="apple-itunes-app" content="app-id=6794945892">
@@ -230,35 +230,9 @@ footer{margin-top:14vh; position:relative}
 .foot-alt{margin-top:14px; font-size:12px; color:color-mix(in srgb,var(--paper) 70%,transparent)}
 .foot-alt a{color:inherit}
 
-/* ————————————————————— launch-list capture ————————————————————— */
-.notifyform{display:inline-flex; margin-top:22px; max-width:92vw}
-.notifyform input[type=email]{
-  font-family:var(--mono); font-size:11px; letter-spacing:.08em;
-  background:transparent; border:1px solid; border-right:0;
-  padding:13px 16px; width:min(240px,46vw); outline:none; border-radius:0;
-  -webkit-appearance:none; appearance:none;
-}
-.notifyform button{
-  font-family:var(--mono); font-size:11px; letter-spacing:.28em; text-transform:uppercase;
-  background:transparent; border:1px solid; padding:13px 22px; white-space:nowrap;
-  cursor:pointer; transition:all .35s ease; border-radius:0;
-}
-@media (max-width:520px){
-  .notifyform{flex-direction:column; gap:10px}
-  .notifyform input[type=email]{border-right:1px solid; width:min(300px,80vw)}
-}
-/* on the footer sea */
-.foot-inner .notifyform input[type=email]{color:var(--paper); border-color:color-mix(in srgb,var(--paper) 40%,transparent)}
-.foot-inner .notifyform input[type=email]::placeholder{color:color-mix(in srgb,var(--paper) 55%,transparent)}
-.foot-inner .notifyform button{color:var(--paper); border-color:color-mix(in srgb,var(--paper) 40%,transparent)}
-.foot-inner .notifyform button:hover{background:var(--paper); color:var(--footbg)}
-/* on paper, mid-page */
+/* ————————————————————— app-store capture ————————————————————— */
 .capture{text-align:center; margin-top:10vh}
 .capture .cap-line{font-family:var(--mono); font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--slate)}
-.capture .notifyform input[type=email]{color:var(--ink); border-color:var(--rule)}
-.capture .notifyform input[type=email]::placeholder{color:color-mix(in srgb,var(--ink) 45%,transparent)}
-.capture .notifyform button{color:var(--ochre); border-color:var(--ochre)}
-.capture .notifyform button:hover{background:var(--ochre); color:var(--paper)}
 
 /* ————————————————————————— app gallery ————————————————————————— */
 .gallery{display:flex; gap:28px; justify-content:center; align-items:flex-start;
@@ -271,7 +245,8 @@ footer{margin-top:14vh; position:relative}
 .phone figcaption{font-family:var(--mono); font-size:10px; letter-spacing:.28em;
   text-transform:uppercase; color:var(--slate); text-align:center; margin-top:18px}
 .phone:nth-child(2){margin-top:52px}
-.phone:nth-child(3){margin-top:104px}
+.phone:nth-child(3){margin-top:0}
+.phone:nth-child(4){margin-top:52px}
 .chiprow{display:flex; flex-wrap:wrap; gap:10px; margin:26px 0 6px}
 .chiprow .chip{
   display:inline-block; font-family:var(--mono); font-size:10px; letter-spacing:.18em;
@@ -284,7 +259,7 @@ footer{margin-top:14vh; position:relative}
   .phone{flex:0 1 280px; min-width:0}
 }
 @media (max-width:900px){
-  .phone:nth-child(2),.phone:nth-child(3){margin-top:0}
+  .phone:nth-child(2),.phone:nth-child(3),.phone:nth-child(4){margin-top:0}
   .gallery{flex-wrap:nowrap; justify-content:flex-start; overflow-x:auto;
     scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
     padding:6px 10vw 20px; margin:56px -24px 0}
@@ -298,45 +273,27 @@ footer{margin-top:14vh; position:relative}
   .scrollcue{opacity:.7!important}
 }
 
-/* ————————————————————————— hero CTA (Track A) ————————————————————————
-   One restrained line under the subtitle. Slate, not ochre: the ochre belongs
-   to the headland and the CTA must not compete with it. Slate clears AA on
-   paper in both schemes (5.91:1 light, 7.69:1 dark). The title block is NOT
-   moved at any viewport.
-
-   FAIL-CLOSED. The link is hidden by default and each band below may only
-   reveal it where the geometry is measured to hold. An unclassified or
-   uncertain viewport therefore shows nothing rather than overlapping the art.
-
-   Two things drive the thresholds. The wordmark is clamp(52px,11vw,124px), so
-   a wider viewport needs a taller one before the link clears the headland by
-   the required 32px. And below about 360px the subtitle wraps to a third
-   line, so the very narrowest screens need MORE height, not less.
-
-   Minimum height for 32px clearance, by binary search against the rendered
-   headland path:
-     320w:762  360w:730  414w:726  480w:742  640w:768  700w:786  768w:772
-     900w:814  1024w:846  1200w:868  1440w:868  1600w:860  1920w:848
-   Each band's reveal height is rounded up from the worst case inside it. */
+/* ————————————————————————— download CTAs ——————————————————————————— */
 .herolink{
-  display:none; margin-top:34px;
+  display:inline-block; margin-top:30px;
   font-family:var(--mono); font-size:11px; letter-spacing:.24em;
-  text-transform:uppercase; color:var(--slate); text-decoration:none;
-  border-bottom:1px solid color-mix(in srgb, var(--slate) 45%, transparent);
-  padding:6px 2px; opacity:0;
+  text-transform:uppercase; color:var(--paper); text-decoration:none;
+  background:var(--ochre); border:1px solid var(--ochre); border-radius:999px;
+  padding:12px 20px; opacity:0;
   animation:surface 1.2s cubic-bezier(.22,1,.36,1) 1.75s forwards;
 }
-.herolink:hover{color:var(--ink); border-bottom-color:var(--ink)}
+.herolink:hover{background:var(--ink); border-color:var(--ink)}
 .herolink:focus-visible{outline:2px solid var(--slate); outline-offset:6px}
-
-@media (min-width:320px)  and (max-width:359px)  and (min-height:766px){ .herolink{display:inline-block} }
-@media (min-width:360px)  and (max-width:414px)  and (min-height:730px){ .herolink{display:inline-block} }
-@media (min-width:415px)  and (max-width:479px)  and (min-height:750px){ .herolink{display:inline-block} }
-@media (min-width:480px)  and (max-width:639px)  and (min-height:776px){ .herolink{display:inline-block} }
-@media (min-width:640px)  and (max-width:767px)  and (min-height:790px){ .herolink{display:inline-block} }
-@media (min-width:768px)  and (max-width:899px)  and (min-height:820px){ .herolink{display:inline-block} }
-@media (min-width:900px)  and (max-width:1023px) and (min-height:850px){ .herolink{display:inline-block} }
-@media (min-width:1024px) and (min-height:873px){ .herolink{display:inline-block} }
+.storebutton{
+  display:inline-block; margin-top:22px; padding:13px 22px; border-radius:999px;
+  background:var(--ochre); color:var(--paper); text-decoration:none;
+  font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+  border:1px solid var(--ochre); transition:background .25s ease,color .25s ease;
+}
+.storebutton:hover{background:var(--ink); border-color:var(--ink)}
+.storebutton:focus-visible{outline:2px solid var(--slate); outline-offset:6px}
+.foot-inner .storebutton{background:var(--paper); color:var(--footbg); border-color:var(--paper)}
+.foot-inner .storebutton:hover{background:var(--ochre); color:var(--paper); border-color:var(--ochre)}
 </style>
 </head>
 <body>
@@ -347,8 +304,8 @@ footer{margin-top:14vh; position:relative}
   <div class="titleblock">
     <h1 class="wordmark">Landfall</h1>
     <p class="tagline">Old words, made landfall<span class="dot">.</span></p>
-    <p class="herosub">A free iPhone app · great books &amp; podcasts, read aloud · talk back</p>
-    <a class="herolink" href="#join">Tell me when it lands</a>
+    <p class="herosub">148 timeless books · natural narration · talk back</p>
+    <a class="herolink" href="https://apps.apple.com/us/app/landfall-books-podcasts/id6794945892">Download on the App Store</a>
   </div>
   <div class="scrollcue">read on</div>
 </header>
@@ -359,11 +316,11 @@ footer{margin-top:14vh; position:relative}
   <section class="chapter" id="thesis">
     <p class="kicker rv">Chapter I</p>
     <h2 class="rv">Talk back to the great books — and the great podcasts.</h2>
-    <p class="lede rv">Landfall reads the books that have outlived their centuries and the week's
-    best podcast conversations — aloud, while your hands are busy. When a line
-    stops you, you stop it back: say what you think, argue it out with an AI
-    companion that knows the passage or the moment you're in, and keep what you
-    said pinned to the words — or the minute — that caused it.</p>
+    <p class="lede rv">Read and listen to 98 included classics and sacred texts, add 50 more
+    famous public-domain titles, or bring your own. When a line stops you, stop
+    it back: discuss the passage, save your thought to the exact words that
+    caused it, or meet a clearly labelled AI persona inspired by an author or
+    major character.</p>
 
     <div class="passage rv" id="passage">
       <span class="sen">You have power over your mind — not outside events.</span>
@@ -375,16 +332,9 @@ footer{margin-top:14vh; position:relative}
       </div>
     </div>
 
-    <div class="capture rv" id="join">
-      <p class="cap-line">Coming free to the App Store</p>
-      <form class="notifyform" action="https://formsubmit.co/admin@s8t.ai" method="POST">
-        <input type="hidden" name="_subject" value="Landfall launch list">
-        <input type="hidden" name="_next" value="https://madelandfall.com/thanks">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <input type="email" name="email" required placeholder="your@email.com" aria-label="Email address">
-        <button type="submit">Tell me when it lands</button>
-      </form>
+    <div class="capture rv" id="download">
+      <p class="cap-line">Available now for iPhone</p>
+      <a class="storebutton" href="https://apps.apple.com/us/app/landfall-books-podcasts/id6794945892">Download on the App Store</a>
     </div>
   </section>
 
@@ -399,9 +349,9 @@ footer{margin-top:14vh; position:relative}
       <div class="folio rv">
         <span class="num">i · LISTEN</span>
         <h3>Read to you</h3>
-        <p>The Gospels, the Gita, the Dhammapada, Marcus Aurelius — a hundred
-        books built in, read in a voice worth hearing. Dense translations can be
-        rewritten plainer; the original is always kept.</p>
+        <p>Follow the text sentence by sentence—even through screen locks. Choose
+        OpenAI · Marin for natural cloud narration, or a downloaded Apple system
+        voice labelled Premium for free offline listening.</p>
         <div class="vig">
           <div class="readline"></div>
           <p class="readtext">And God said, Let there be light: and there was light…</p>
@@ -411,10 +361,9 @@ footer{margin-top:14vh; position:relative}
       <div class="folio rv">
         <span class="num">ii · SPEAK</span>
         <h3>Think out loud</h3>
-        <p>Tap Talk and say your thought — about the page you’re on or the
-        episode you’re in — or say <em>“note that”</em> and it lands in the
-        margin, in your words, exactly where you were. Your notes become your
-        own commentary.</p>
+        <p>On compatible iPhones, Apple On-Device Jam is free, private, and works
+        offline with the passage on screen. Cloud Talk can explain, challenge,
+        or search farther. Say <em>“note that”</em> to keep your thought.</p>
         <div class="vig">
           <div class="wave" aria-hidden="true">
             <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
@@ -424,37 +373,42 @@ footer{margin-top:14vh; position:relative}
       </div>
 
       <div class="folio rv">
-        <span class="num">iii · SIFT</span>
-        <h3>This week’s conversations</h3>
-        <p>Every day Landfall sifts the top podcast charts for the few episodes
-        that sit with the big questions — most were never tagged “religion.”
-        Chapter IV tells the whole story.</p>
+        <span class="num">iii · MEET</span>
+        <h3>The people in your books</h3>
+        <p>Discover selected authors and major characters from your library.
+        Build a source-linked profile, then start a persistent conversation with
+        a clearly labelled AI persona inspired by them.</p>
         <div class="vig">
           <div class="cards">
-            <div class="card"><span class="chip">Stoic</span><br>Kate Bowler challenges Stoicism’s most famous idea</div>
-            <div class="card"><span class="chip">Secular</span><br>A neuroscientist on what meditation does</div>
-            <div class="card"><span class="chip">Christian</span><br>Faith and doubt, with Miroslav Volf</div>
+            <div class="card"><span class="chip">Author</span><br>Jane Austen · source-linked profile</div>
+            <div class="card"><span class="chip">Character</span><br>Sherlock Holmes · persistent memory</div>
+            <div class="card"><span class="chip">Clearly labelled</span><br>AI persona, never the real person</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- the app itself: three moments, unretouched -->
+    <!-- the app itself: four current moments, unretouched -->
     <div class="gallery" tabindex="0" role="region" aria-label="App screenshots — scrolls sideways on small screens">
       <figure class="phone rv">
+        <div class="frame"><img src="shots/01-books.png" width="640" height="1390" loading="lazy"
+          alt="Landfall Books showing famous classics available to add and included sacred texts"></div>
+        <figcaption>98 included · 50 more to add</figcaption>
+      </figure>
+      <figure class="phone rv">
         <div class="frame"><img src="shots/02-reader.png" width="640" height="1390" loading="lazy"
-          alt="The Landfall reader following the Dhammapada aloud — the current sentence highlighted, Talk and Notes on the dock"></div>
+          alt="The Landfall reader following a book aloud with Talk and Notes available"></div>
         <figcaption>the line, lit as it’s read</figcaption>
       </figure>
       <figure class="phone rv">
-        <div class="frame"><img src="shots/03-podcasts.png" width="640" height="1390" loading="lazy"
-          alt="The Today tab — podcast episodes sifted daily from the top charts, filtered by tradition"></div>
-        <figcaption>podcasts, sifted daily</figcaption>
+        <div class="frame"><img src="shots/03-people.png" width="640" height="1390" loading="lazy"
+          alt="Landfall People showing reviewed authors and characters from the reader's books"></div>
+        <figcaption>meet the people in your books</figcaption>
       </figure>
       <figure class="phone rv">
-        <div class="frame"><img src="shots/04-episode.png" width="640" height="1390" loading="lazy"
-          alt="An episode playing in Landfall with Talk and Notes available mid-episode"></div>
-        <figcaption>talk mid-episode · note the minute</figcaption>
+        <div class="frame"><img src="shots/04-podcast.png" width="640" height="1390" loading="lazy"
+          alt="A podcast episode in Landfall with streaming, notes, and Jam controls"></div>
+        <figcaption>stream · note · talk it through</figcaption>
       </figure>
     </div>
 
@@ -465,11 +419,11 @@ footer{margin-top:14vh; position:relative}
   <!-- ═══════════════════ III · THE LIBRARY ════════════════════ -->
   <section class="chapter" id="library">
     <p class="kicker rv">Chapter III</p>
-    <h2 class="rv">One hundred books that refused to die.</h2>
-    <div class="shelfwrap rv" tabindex="0" role="region" aria-label="The hundred-book shelf — scrolls sideways">
+    <h2 class="rv">Ninety-eight included. Fifty more ready to add.</h2>
+    <div class="shelfwrap rv" tabindex="0" role="region" aria-label="The 148-book catalogue — scrolls sideways">
       <div class="shelf" id="shelf"></div>
     </div>
-    <p class="shelfnote rv">…and your own — bring any book, in Word or plain text.</p>
+    <p class="shelfnote rv">…and your own — bring any book in Word, Markdown, or plain text.</p>
     <p class="shelfnote rv">Any of them can be rewritten at an easier reading level — the whole
     book, chapter by chapter, with the original always one tap away.</p>
   </section>
@@ -480,15 +434,12 @@ footer{margin-top:14vh; position:relative}
   <section class="chapter" id="conversations">
     <p class="kicker rv">Chapter IV</p>
     <h2 class="rv">The old questions, still being asked.</h2>
-    <p class="lede rv">Every morning Landfall reads the top podcast charts in every category —
-    a thousand shows, most never filed under “religion” — and keeps the few
-    episodes that sit with the big questions. A theologian honest about doubt.
-    A neuroscientist on what meditation does. A skeptic taking the sacred
-    seriously.</p>
-    <p class="lede rv">And the loop you learned in the books is the loop here: stop an episode
-    mid-thought, talk it out with a companion that heard what you heard, and
-    the note lands on the minute. Follow shows, stream or download, and see
-    everything you’ve listened to.</p>
+    <p class="lede rv">Every morning Landfall sifts the top podcast charts and keeps a finite
+    set of episodes that sit with the big questions. Follow shows, stream or
+    download, and leave notes at the exact timestamp.</p>
+    <p class="lede rv">Jam tells you what it knows: Full transcript, Current excerpt, or
+    Description only. When no transcript is available, it says it cannot verify
+    the hosts’ exact words instead of pretending it heard them.</p>
     <div class="chiprow rv" aria-hidden="true">
       <span class="chip on">All</span><span class="chip">Buddhist</span><span class="chip">Christian</span><span class="chip">Hindu</span><span class="chip">Indigenous</span><span class="chip">Interfaith</span><span class="chip">Jewish</span><span class="chip">Muslim</span><span class="chip">Secular</span><span class="chip">Stoic</span>
     </div>
@@ -509,8 +460,10 @@ footer{margin-top:14vh; position:relative}
     <ul class="covenant">
       <li class="rv"><b>No account</b><span>Nothing to sign up for. Open it and read.</span></li>
       <li class="rv"><b>No feed</b><span>The daily digest is finite. You can finish it.</span></li>
-      <li class="rv"><b>No tracking</b><span>No analytics, no ads, no server of ours holding your words.</span></li>
-      <li class="rv"><b>Your key, your Keychain</b><span>AI features are optional and bring-your-own-key — stored on your iPhone, sent only to OpenAI, removable any time.</span></li>
+      <li class="rv"><b>Free on-device choices</b><span>A downloaded high-quality Apple voice reads offline. Apple On-Device Jam stays on compatible iPhones.</span></li>
+      <li class="rv"><b>No ads or tracking</b><span>Landfall keeps content-free records for allowances and diagnostics, not your books, notes, prompts, transcripts, or generated narration audio.</span></li>
+      <li class="rv"><b>Your route is visible</b><span>Use a capped Landfall Premium allowance or your own verified OpenAI key for eligible cloud features. The app shows which one pays.</span></li>
+      <li class="rv"><b>Premium stops at the limit</b><span>8 hours of narration, 8 hours of podcast transcription, 15 minutes of book and podcast Talk, and 10 minutes of People Talk each month—with no AI overage charges.</span></li>
     </ul>
   </section>
 </div>
@@ -526,19 +479,8 @@ footer{margin-top:14vh; position:relative}
       <line x1="16" y1="76" x2="104" y2="76" stroke="var(--paper)" stroke-width="6.5" stroke-linecap="round"/>
       <line x1="34" y1="92" x2="86" y2="92" stroke="var(--paper)" stroke-width="6" stroke-linecap="round" opacity=".45"/>
     </svg>
-    <p class="coming">Coming free to the App&nbsp;Store.</p>
-    <form class="notifyform" action="https://formsubmit.co/admin@s8t.ai" method="POST">
-      <input type="hidden" name="_subject" value="Landfall launch list">
-      <input type="hidden" name="_next" value="https://madelandfall.com/thanks">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <input type="email" name="email" required placeholder="your@email.com" aria-label="Email address">
-      <button type="submit">Tell me when it lands</button>
-    </form>
-    <p class="foot-alt">or email <a href="mailto:admin@s8t.ai?subject=Landfall%20launch%20list&amp;body=Tell%20me%20when%20it%20lands.">admin@s8t.ai</a></p>
-    <!-- LAUNCH DAY: uncomment, and demote the form above.
-    <a class="notify" href="https://apps.apple.com/us/app/landfall-books-podcasts/id6794945892">Download on the App Store</a>
-    -->
+    <p class="coming">Old words, made landfall.</p>
+    <a class="storebutton" href="https://apps.apple.com/us/app/landfall-books-podcasts/id6794945892">Download on the App Store</a>
     <p class="foot-links">
       <a href="/privacy">Privacy</a>
       <a href="/support">Support</a>
@@ -798,11 +740,15 @@ footer{margin-top:14vh; position:relative}
   // the shelf
   const books = [
     ['The Gospels','--sea6'],['Bhagavad Gita','--ochre'],['Dhammapada','--sea5'],
-    ['Meditations','--ink'],['Tao Te Ching','--sea7'],['Job','--sea4'],
-    ['Ecclesiastes','--ochre'],['The Upanishads','--sea6'],['Confucius','--ink'],
-    ['Psalms','--sea5'],['The Apocrypha','--sea7'],['Chuang Tzu','--ochre'],
-    ['I Ching','--sea6'],['Augustine','--ink'],['The Imitation of Christ','--sea5'],
-    ['Epictetus','--sea7'],['The Book of the Dead','--ochre'],['Pilgrim’s Progress','--sea6']
+    ['Meditations','--ink'],['Tao Te Ching','--sea7'],['Psalms','--sea4'],
+    ['The Upanishads','--ochre'],['Confucius','--sea6'],['Frankenstein','--ink'],
+    ['Dracula','--sea5'],['Pride and Prejudice','--sea7'],['A Tale of Two Cities','--ochre'],
+    ['Sherlock Holmes','--sea6'],['The Hound of the Baskervilles','--ink'],
+    ['Crime and Punishment','--sea5'],['The Odyssey','--sea7'],
+    ['Twenty Thousand Leagues Under the Seas','--ochre'],['The Picture of Dorian Gray','--sea6'],
+    ['Jane Eyre','--ink'],['The Time Machine','--sea5'],
+    ['Alice’s Adventures in Wonderland','--sea7'],['The Count of Monte Cristo','--ochre'],
+    ['Little Women','--sea6'],['The Brothers Karamazov','--ink']
   ];
   const shelf = document.getElementById('shelf');
   books.forEach(([title,tone],i)=>{
