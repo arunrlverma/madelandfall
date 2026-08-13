@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Landfall — read, listen, and talk back</title>
-<meta name="description" content="Read and listen to 148 timeless books, discuss passages with free private Apple On-Device Jam, explore podcasts, and meet clearly labelled AI personas inspired by authors and characters.">
+<meta name="description" content="Read 148 timeless books, stream or download finished Landfall Studio audiobooks, talk back to passages, discover thoughtful podcasts, and meet clearly labelled AI personas inspired by authors and characters.">
 <link rel="canonical" href="https://madelandfall.com/">
 <meta name="theme-color" content="#FAF7F2" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141210" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://madelandfall.com/">
 <meta property="og:title" content="Landfall — read, listen, and talk back">
-<meta property="og:description" content="148 timeless books, natural narration, free private on-device Jam, thoughtful podcasts, and clearly labelled AI personas inspired by authors and characters.">
+<meta property="og:description" content="148 timeless books, finished downloadable audiobooks, natural live narration, private on-device Jam, thoughtful podcasts, and clearly labelled AI personas.">
 <meta property="og:image" content="https://madelandfall.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="apple-itunes-app" content="app-id=6794945892">
@@ -145,6 +145,34 @@ h2{
 .folio h3{font-size:24px; font-weight:600; margin:14px 0 10px}
 .folio p{font-size:15.5px; color:color-mix(in srgb, var(--ink) 72%, var(--paper))}
 .folio .vig{height:120px; margin-top:22px; position:relative}
+
+/* finished audiobook choice — a compact echo of the in-app Book Audio sheet */
+.audio-showcase{
+  margin-top:7vh; display:grid; grid-template-columns:minmax(0,1.25fr) minmax(250px,.75fr);
+  gap:28px; align-items:center; padding:30px;
+  border:1px solid var(--rule); border-radius:28px;
+  background:color-mix(in srgb, var(--paper) 92%, var(--slate));
+  box-shadow:0 24px 60px -48px rgba(0,0,0,.45);
+}
+.audio-kicker{font-family:var(--mono); font-size:10px; letter-spacing:.26em; text-transform:uppercase; color:var(--ochre)}
+.audio-showcase h3{font-size:clamp(25px,3.2vw,38px); line-height:1.1; margin:10px 0 8px}
+.audio-showcase p{font-size:15.5px; color:color-mix(in srgb, var(--ink) 72%, var(--paper))}
+.audio-points{display:flex; flex-wrap:wrap; gap:8px; margin-top:18px}
+.audio-points span{
+  padding:7px 11px; border-radius:999px; background:var(--paper); border:1px solid var(--rule);
+  font-family:var(--mono); font-size:9px; letter-spacing:.12em; text-transform:uppercase;
+}
+.audio-choice{padding:20px; border-radius:20px; background:var(--paper); border:1px solid var(--rule)}
+.audio-choice-head{display:flex; align-items:center; gap:12px}
+.audio-choice svg{width:32px; height:32px; flex:0 0 auto; color:var(--slate)}
+.audio-choice b{font-size:17px; font-weight:600}
+.audio-choice small{display:block; color:var(--slate); margin-top:2px}
+.audio-line{height:3px; border-radius:3px; margin:18px 0 11px; background:var(--rule); overflow:hidden}
+.audio-line::before{content:""; display:block; width:68%; height:100%; background:var(--ochre)}
+.audio-status{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--slate)}
+@media (max-width:720px){
+  .audio-showcase{grid-template-columns:1fr; padding:24px; border-radius:24px}
+}
 
 /* vignette: waveform */
 .wave{display:flex; align-items:center; gap:4px; height:44px}
@@ -309,7 +337,7 @@ footer{margin-top:14vh; position:relative}
   <div class="titleblock">
     <h1 class="wordmark">Landfall</h1>
     <p class="tagline">Old words, made landfall<span class="dot">.</span></p>
-    <p class="herosub">148 timeless books · natural narration · talk back</p>
+    <p class="herosub">148 timeless books · studio audiobooks · talk back</p>
     <a class="herolink" href="https://apps.apple.com/us/app/landfall-books-podcasts/id6794945892">Download on the App Store</a>
   </div>
   <div class="scrollcue">read on</div>
@@ -321,8 +349,10 @@ footer{margin-top:14vh; position:relative}
   <section class="chapter" id="thesis">
     <p class="kicker rv">Chapter I</p>
     <h2 class="rv">Talk back to the great books — and the great podcasts.</h2>
-    <p class="lede rv">Read and listen to 98 included classics and sacred texts, add 50 more
-    famous public-domain titles, or bring your own. When a line stops you, stop
+    <p class="lede rv">Read 98 included classics and sacred texts, add 50 more
+    famous public-domain titles, or bring your own. Stream or download finished
+    Landfall Studio editions where the small audio mark appears, with no Premium
+    minutes required. When a line stops you, stop
     it back: discuss the passage, save your thought to the exact words that
     caused it, or meet a clearly labelled AI persona inspired by an author or
     major character.</p>
@@ -350,13 +380,37 @@ footer{margin-top:14vh; position:relative}
     <p class="kicker rv">Chapter II</p>
     <h2 class="rv">A practice, not a feed.</h2>
 
+    <article class="audio-showcase rv" aria-label="Landfall Studio audiobook editions">
+      <div>
+        <div class="audio-kicker">New · finished editions</div>
+        <h3>One book. One voice. Ready when you are.</h3>
+        <p>Look for the small audio mark in Books. A finished Landfall Studio edition
+        can stream immediately or download once for offline listening. It stays synced
+        to the text and never consumes Premium minutes.</p>
+        <div class="audio-points" aria-label="Audiobook benefits">
+          <span>Stream free</span><span>Download offline</span><span>No AI minutes</span>
+        </div>
+      </div>
+      <div class="audio-choice" aria-hidden="true">
+        <div class="audio-choice-head">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M5 18v-3a11 11 0 0 1 22 0v3M5 18v5a3 3 0 0 0 3 3h2v-10H8a3 3 0 0 0-3 2Zm22 0v5a3 3 0 0 1-3 3h-2v-10h2a3 3 0 0 1 3 2Z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div><b>Landfall Studio Reading</b><small>Finished audiobook edition</small></div>
+        </div>
+        <div class="audio-line"></div>
+        <div class="audio-status">On this iPhone · ready</div>
+      </div>
+    </article>
+
     <div class="folios">
       <div class="folio rv">
         <span class="num">i · LISTEN</span>
         <h3>Read to you</h3>
-        <p>Follow the text sentence by sentence—even through screen locks. Choose
-        OpenAI · Marin for natural cloud narration, or a downloaded Apple system
-        voice labelled Premium for free offline listening.</p>
+        <p>Follow the text sentence by sentence—even through screen locks. Where a
+        finished Landfall Studio edition is available, stream it or download it
+        for offline listening with one consistent narrator and no Premium minutes.
+        Live Marin narration remains available and follows easier rewrites.</p>
         <div class="vig">
           <div class="readline"></div>
           <p class="readtext">And God said, Let there be light: and there was light…</p>
@@ -428,7 +482,8 @@ footer{margin-top:14vh; position:relative}
     <div class="shelfwrap rv" tabindex="0" role="region" aria-label="The 148-book catalogue — scrolls sideways">
       <div class="shelf" id="shelf"></div>
     </div>
-    <p class="shelfnote rv">…and your own — bring any book in Word, Markdown, or plain text.</p>
+    <p class="shelfnote rv">Browse sacred texts as a complete collection, explore the
+    famous-classics shelf, or bring your own book in Word, Markdown, or plain text.</p>
     <p class="shelfnote rv">Any of them can be rewritten at an easier reading level — the whole
     book, chapter by chapter, with the original always one tap away.</p>
   </section>
@@ -439,9 +494,9 @@ footer{margin-top:14vh; position:relative}
   <section class="chapter" id="conversations">
     <p class="kicker rv">Chapter IV</p>
     <h2 class="rv">The old questions, still being asked.</h2>
-    <p class="lede rv">Every morning Landfall sifts the top podcast charts and keeps a finite
-    set of episodes that sit with the big questions. Follow shows, stream or
-    download, and leave notes at the exact timestamp.</p>
+    <p class="lede rv">For You learns from listening history kept on this iPhone and puts a
+    visual recommendation shelf above a finite set of daily picks from the top podcast
+    charts. Follow shows, stream or download, and leave notes at the exact timestamp.</p>
     <p class="lede rv">Jam tells you what it knows: Full transcript, Current excerpt, or
     Description only. When no transcript is available, it says it cannot verify
     the hosts’ exact words instead of pretending it heard them.</p>
@@ -465,8 +520,9 @@ footer{margin-top:14vh; position:relative}
     <ul class="covenant">
       <li class="rv"><b>No account</b><span>Nothing to sign up for. Open it and read.</span></li>
       <li class="rv"><b>No feed</b><span>The daily digest is finite. You can finish it.</span></li>
+      <li class="rv"><b>Finished audio is free to play</b><span>Landfall Studio editions stream or download without consuming Premium minutes. Available books carry a small audio mark.</span></li>
       <li class="rv"><b>Free on-device choices</b><span>A downloaded high-quality Apple voice reads offline. Apple On-Device Jam stays on compatible iPhones.</span></li>
-      <li class="rv"><b>No ads or tracking</b><span>Landfall keeps content-free records for allowances and diagnostics, not your books, notes, prompts, transcripts, or generated narration audio.</span></li>
+      <li class="rv"><b>No ads or tracking</b><span>Landfall keeps content-free records for allowances and diagnostics, not your books, notes, prompts, transcripts, or request-specific narration audio.</span></li>
       <li class="rv"><b>Your route is visible</b><span>Use a capped Landfall Premium allowance or your own verified OpenAI key for eligible cloud features. The app shows which one pays.</span></li>
       <li class="rv"><b>Premium stops at the limit</b><span>8 hours of narration, 8 hours of podcast transcription, 15 minutes of book and podcast Talk, and 10 minutes of People Talk each month—with no AI overage charges.</span></li>
     </ul>
@@ -489,6 +545,7 @@ footer{margin-top:14vh; position:relative}
     <p class="foot-links">
       <a href="/privacy">Privacy</a>
       <a href="/support">Support</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms</a>
     </p>
     <p class="foot-fine">© 2026 NextBase LLC · The books are in the public domain. The hours are your own.</p>
   </div>
