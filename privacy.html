@@ -52,7 +52,7 @@ b{font-weight:600}
   <p class="kicker">Landfall</p>
   <h1>Privacy Policy</h1>
   <p class="meta">Landfall is made by NextBase LLC, 30 N Gould St Ste N, Sheridan, WY 82801.<br>
-  Effective August 29, 2026 · Contact: <a href="mailto:verma.arun@gmail.com">verma.arun@gmail.com</a></p>
+  Effective September 2, 2026 · Contact: <a href="mailto:verma.arun@gmail.com">verma.arun@gmail.com</a></p>
 
   <p>Landfall is local-first. Its free reading, library, and note features do not
   require a Landfall login. Optional cloud features are described below.</p>
@@ -84,15 +84,22 @@ b{font-weight:600}
 
   <h2>What leaves your iPhone, and when</h2>
   <ul>
-    <li><b>Install measurement.</b> Landfall uses Meta's iOS SDK to send an app
-    activation event and limited device/app diagnostic information so we can measure
-    whether an advertisement led to an install. Landfall does not send Meta your
-    books, notes, searches, podcasts, listening activity, prompts, conversations,
-    purchases, subscription status, email address, or other direct identifiers.
-    Apple's App Tracking Transparency prompt controls access to the advertising
-    identifier and cross-app attribution. If you decline, Landfall keeps advertiser-ID
-    collection disabled; Apple may still provide privacy-preserving aggregate campaign
-    measurement. Landfall does not use Facebook Login.</li>
+    <li><b>Install and purchase measurement.</b> Landfall uses Meta's iOS SDK to send
+    an app activation event and limited device/app diagnostic information so we can
+    measure whether an advertisement led to an install, and two further kinds of
+    event so we can measure whether it led to a subscriber: when a Premium offer
+    screen is shown (and which screen showed it), and your original Premium
+    purchase — a free trial start or a paid subscription — with the plan's product
+    id, its price and currency, and Apple's StoreKit transaction id for that
+    purchase. Meta uses these events for analytics and advertising measurement.
+    Renewals, plan changes, restores, refunds, and Family Sharing purchases are not
+    sent. Landfall does not send Meta your books, notes, searches, podcasts,
+    listening activity, prompts, conversations, name, email address, Apple ID, or
+    other direct identifiers. Apple's App Tracking Transparency prompt controls
+    access to the advertising identifier and cross-app attribution. If you decline,
+    Landfall keeps advertiser-ID collection disabled; Apple may still provide
+    privacy-preserving aggregate campaign measurement. Landfall does not use
+    Facebook Login.</li>
     <li><b>Your own provider key — only if you add it and use an AI feature.</b>
     Starting a Talk conversation streams your voice and the current
     passage to OpenAI; converting a book's reading level sends its text; note-tidying
@@ -122,8 +129,9 @@ b{font-weight:600}
 
   <h2>What we never do</h2>
   <p>No ads inside Landfall, no selling of data, no sharing with data brokers, and no
-  advertising fingerprinting. Meta install measurement is limited to the activation
-  event described above and is never given reading or conversation content.</p>
+  advertising fingerprinting. Meta measurement is limited to the activation,
+  offer-screen, and original-purchase events described above and is never given
+  reading or conversation content.</p>
 
   <h2>Children</h2>
   <p>Landfall is not directed at children and is rated accordingly on the App Store.</p>
