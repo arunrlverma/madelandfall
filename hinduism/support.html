@@ -63,9 +63,13 @@ b{font-weight:600}
     Optional Premium purchases are managed by your Apple Account.</dd>
 
     <dt>Why does Landfall ask to track?</dt>
-    <dd>Only to measure whether a Meta ad led to an install. Landfall does not send
-    Meta your reading, searches, listening, notes, conversations, purchases, or
-    subscription status. You can decline without losing any feature.</dd>
+    <dd>Only to measure whether a Meta ad led to an install or a subscriber. Landfall
+    sends Meta an app-activation event, an event when a Premium offer screen is shown,
+    and your original Premium purchase (a trial start or paid subscription: product id,
+    price, currency, and StoreKit transaction id). Renewals, plan changes, restores,
+    refunds, and Family Sharing purchases are not sent, and neither are your reading,
+    searches, listening, notes, or conversations. You can decline without losing any
+    feature.</dd>
 
     <dt>What does it cost?</dt>
     <dd>The app is free. Core reading, notes, podcasts, the daily digest, a downloaded
@@ -289,7 +293,8 @@ b{font-weight:600}
   <dl>
     <dt>What do you collect about me?</dt>
     <dd>No ads appear inside Landfall. Optional, consent-based install attribution is
-    limited to Meta app activation and never includes reading or conversation content.
+    limited to the Meta activation, offer-screen, and original-purchase events and never
+    includes reading or conversation content.
     Premium retains pseudonymous entitlement, quota,
     attestation, request-state, feature-usage, and cost records to enforce allowances,
     diagnose failures, plan capacity, and report aggregate usage. Those records contain
